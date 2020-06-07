@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody
 
 var velocity = Vector3()
-export var ACCELERATION = 0.3
+export var ACCELERATION = 0.5
 export var player_id = "p1"
 
 

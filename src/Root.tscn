@@ -1,28 +1,32 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://res/materials/visual/wall.tres" type="Material" id=1]
 [ext_resource path="res://res/materials/physics/bounce.tres" type="PhysicsMaterial" id=2]
 [ext_resource path="res://src/Players/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Ball.gd" type="Script" id=4]
+[ext_resource path="res://res/images/WoodPlanks.jpg" type="Texture" id=5]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.5, 0.5, 15 )
+extents = Vector3( 0.5, 0.5, 20 )
 
 [sub_resource type="CubeMesh" id=2]
 material = ExtResource( 1 )
-size = Vector3( 1, 1, 30 )
+size = Vector3( 1, 1, 40 )
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 10, 0.5, 15 )
+extents = Vector3( 20, 0.5, 10 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.847059, 0.823529, 0.729412, 1 )
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 10, 5, 0 )
 
 [sub_resource type="CubeMesh" id=5]
-size = Vector3( 21, 1, 30 )
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.588235, 0.662745, 1, 1 )
+material = SubResource( 12 )
+size = Vector3( 40, 1, 21 )
 
 [sub_resource type="PhysicsMaterial" id=7]
 friction = 0.0
@@ -36,8 +40,7 @@ radius = 0.25
 [sub_resource type="Skin" id=10]
 
 [sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0.623529, 0.623529, 0.623529, 1 )
-metallic = 0.5
+albedo_color = Color( 0.921569, 0.0784314, 0.0784314, 1 )
 
 [node name="Root" type="Spatial"]
 
@@ -68,6 +71,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Floor" type="StaticBody" parent="Level/Boundaries"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
 physics_material_override = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Level/Boundaries/Floor"]
@@ -75,14 +79,13 @@ shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Level/Boundaries/Floor"]
 mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+material/0 = null
 
 [node name="Ball" type="RigidBody" parent="Level"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0 )
 mass = 91.8367
 physics_material_override = SubResource( 7 )
-axis_lock_linear_y = true
-linear_velocity = Vector3( -4, 0, 10 )
+linear_velocity = Vector3( -4, 0, -10 )
 linear_damp = 0.0
 script = ExtResource( 4 )
 
@@ -96,11 +99,11 @@ skin = SubResource( 10 )
 material/0 = SubResource( 11 )
 
 [node name="Player1" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 14 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 19 )
 
 [node name="Player2" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -19 )
 player_id = "p2"
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1.62921e-07, -0.906308, 0.422618, 0, 0.422618, 0.906308, -1, 1.47657e-07, -6.88533e-08, 10, 20, 0 )
+transform = Transform( -1.62921e-07, -0.766045, 0.642788, 0, 0.642788, 0.766045, -1, 1.24805e-07, -1.04723e-07, 17, 16, 0 )
