@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/RockWall.jpg-3e89877d4a3320268ec74a26d05c49ca.s3tc.stex"
-path.etc2="res://.import/RockWall.jpg-3e89877d4a3320268ec74a26d05c49ca.etc2.stex"
+path.s3tc="res://.import/Marble 13_roughness.jpeg-19449fb5bbdc66eea136b97d0f6926b2.s3tc.stex"
+path.etc2="res://.import/Marble 13_roughness.jpeg-19449fb5bbdc66eea136b97d0f6926b2.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://res/images/RockWall.jpg"
-dest_files=[ "res://.import/RockWall.jpg-3e89877d4a3320268ec74a26d05c49ca.s3tc.stex", "res://.import/RockWall.jpg-3e89877d4a3320268ec74a26d05c49ca.etc2.stex" ]
+source_file="res://res/textures/Marble 13_roughness.jpeg"
+dest_files=[ "res://.import/Marble 13_roughness.jpeg-19449fb5bbdc66eea136b97d0f6926b2.s3tc.stex", "res://.import/Marble 13_roughness.jpeg-19449fb5bbdc66eea136b97d0f6926b2.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

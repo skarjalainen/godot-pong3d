@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/Players/Player.gd"
+"path": "res://src/Actors/Player.gd"
 } ]
 _global_script_class_icons={
 "Player": ""
@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="Pong3D"
 run/main_scene="res://src/Root.tscn"
 config/icon="res://icon.png"
+
+[gui]
+
+theme/custom="res://res/themes/main.tres"
 
 [input]
 

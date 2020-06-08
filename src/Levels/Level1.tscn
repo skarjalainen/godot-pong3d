@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Elements/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Elements/Floor.tscn" type="PackedScene" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.0
+bounce = 1.0
+
+[node name="Level1" type="Spatial"]
+
+[node name="Boundaries" type="Spatial" parent="."]
+
+[node name="Wall1" parent="Boundaries" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.5, 0 )
+
+[node name="Wall2" parent="Boundaries" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 0 )
+
+[node name="Floor" parent="Boundaries" instance=ExtResource( 7 )]
+physics_material_override = SubResource( 1 )
+
+[node name="Ball" parent="." instance=ExtResource( 5 )]
+physics_material_override = SubResource( 2 )
+
+[node name="Player1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 19 )
+
+[node name="Player2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -19 )
+player_id = "p2"
