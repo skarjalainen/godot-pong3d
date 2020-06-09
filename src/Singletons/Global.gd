@@ -5,6 +5,7 @@ signal score_changed
 const SCORE_TO_WIN = 5
 
 var isStartCounter = false
+var isMainMenu = true
 var isPauseMenu = false
 var isGameOver = false
 

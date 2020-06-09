@@ -28,8 +28,9 @@ func _on_ContinueButton_pressed():
 
 func _on_RestartButton_pressed():
 	close()
-	get_tree().change_scene("res://src/Root.tscn")
+	Scene.goto_scene("res://src/Levels/Level1.tscn")
 
 
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	close()
+	Scene.goto_scene("res://src/UI/MainMenu.tscn")
