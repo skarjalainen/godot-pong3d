@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Levels/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/StartCounter.gd" type="Script" id=2]
 [ext_resource path="res://res/themes/main.tres" type="Theme" id=3]
 [ext_resource path="res://res/fonts/Neufreit-ExtraBold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://res/fonts/Neufreit-ExtraBold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/Root.gd" type="Script" id=6]
+[ext_resource path="res://src/UI/PauseMenu.gd" type="Script" id=7]
+[ext_resource path="res://src/UI/HUD.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -26,6 +30,7 @@ size = 40
 font_data = ExtResource( 4 )
 
 [node name="Root" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Level1" parent="." instance=ExtResource( 1 )]
 
@@ -72,6 +77,7 @@ custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,3 +137,86 @@ margin_right = 482.0
 margin_bottom = 74.0
 custom_fonts/font = SubResource( 5 )
 text = "0"
+
+[node name="PauseMenu" type="Popup" parent="UI"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -150.0
+margin_right = 250.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 500, 300 )
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -162.5
+margin_right = 250.0
+margin_bottom = 162.5
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer" type="VBoxContainer" parent="UI/PauseMenu/ColorRect/MarginContainer"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 400.0
+margin_bottom = 225.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer"]
+margin_right = 300.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 300, 0 )
+text = "Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer"]
+margin_top = 45.0
+margin_right = 300.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 5 )
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer"]
+margin_top = 90.0
+margin_right = 300.0
+margin_bottom = 125.0
+custom_fonts/font = ExtResource( 5 )
+text = "Quit"
+[connection signal="pressed" from="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer/ContinueButton" to="UI/PauseMenu" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer/RestartButton" to="UI/PauseMenu" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/ColorRect/MarginContainer/ButtonContainer/QuitButton" to="UI/PauseMenu" method="_on_QuitButton_pressed"]

@@ -24,6 +24,10 @@ config/name="Pong3D"
 run/main_scene="res://src/Root.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/Singletons/Global.gd"
+
 [gui]
 
 theme/custom="res://res/themes/main.tres"

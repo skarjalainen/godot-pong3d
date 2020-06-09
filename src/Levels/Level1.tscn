@@ -26,6 +26,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 0 )
 physics_material_override = SubResource( 1 )
 
 [node name="Ball" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 physics_material_override = SubResource( 2 )
 
 [node name="Player1" parent="." instance=ExtResource( 6 )]
