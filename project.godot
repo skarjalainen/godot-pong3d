@@ -32,6 +32,7 @@ Scene="*res://src/Singletons/Scene.gd"
 [gui]
 
 theme/custom="res://res/themes/main.tres"
+theme/custom_font="res://res/fonts/NotoSans-Regular.tres"
 
 [input]
 

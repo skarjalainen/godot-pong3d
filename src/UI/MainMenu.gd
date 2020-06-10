@@ -3,15 +3,16 @@ extends Control
 
 const PORT = 3000
 
-onready var NameInput = get_node("ColorRect/MarginContainer/ButtonContainer/NameInput")
+onready var NameInput = get_node("NinePatchRect/ButtonContainer/NameInput")
 
 
 func _ready():
-	pass
+	NameInput.text = Global.playerData[0].name
 
 
 func savePlayerName():
 	Global.playerData[0].name = NameInput.text
+	Global.saveSettings()
 
 func _on_SinglePlayerButton_pressed():
 	savePlayerName()
